@@ -36,9 +36,9 @@ const archiver  = require('archiver');
 // ─── Express setup ────────────────────────────────────────────────────────────
 const app = express();
 app.use(cors({
-  origin: '*',
+  origin: '*', // This allows requests from any origin including our live site
   methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept']
 }));
 app.use(express.json({ limit: '5mb' }));
 
