@@ -40,6 +40,9 @@ app.use(cors({
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept']
 }));
+app.options('*', (req, res) => {
+  res.status(200).end();
+});
 app.use(express.json({ limit: '5mb' }));
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
